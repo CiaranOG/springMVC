@@ -11,27 +11,44 @@
 <html>
 <head>
     <title>Registration</title>
-    <form:form modelAttribute="registration">
-        <table>
-            <tr>
-                <td>
-                    <spring:message code="name" />
-                </td>
-                <td>
-                    <form:input path="name" />
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <input type="submit" value="Add Registration">
+    <style>
+        .error{
+            color:#ff0000;
+        }
+        .errorblock{
+            color: #000;
+            background-color: #ffEEEE;
+            border: 3px solid #ff0000;
+            padding: 8px;
+            margin:16px;
+        }
+    </style>
 
-                </td>
-            </tr>
-        </table>
-    </form:form>
 </head>
 <body>
 <h1>Registration</h1>
+<form:form modelAttribute="registration">
+    <form:errors path="*" cssClass="errorblock" element="dov" />
+    <table>
+        <tr>
+            <td>
+                <spring:message code="name" />
+            </td>
+            <td>
+                <form:input path="name" />
+            </td>
+            <td>
+                <form:errors path="name" cssClass="error"/>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <input type="submit" value="Add Registration">
+
+            </td>
+        </tr>
+    </table>
+</form:form>
 
 </body>
 </html>
